@@ -26,9 +26,11 @@ import (
 
 type WriteOperation func(file *os.File) error
 
-const DefaultDirectoryMode os.FileMode = 0755
-const DefaultFileMode os.FileMode = 0644
-const DefaultTempPattern = ".temp*~"
+const (
+	DefaultDirectoryMode os.FileMode = 0755
+	DefaultFileMode      os.FileMode = 0644
+	DefaultTempPattern               = ".temp*~"
+)
 
 type Config struct {
 	Directory                string
@@ -275,5 +277,5 @@ func (c Config) getDirectoryMode() os.FileMode {
 type InvalidName string
 
 func (e InvalidName) Error() string {
-	return fmt.Sprintf("writefile: invalid name: %q", e)
+	return fmt.Sprintf("writefile: invalid name: %q", string(e))
 }
