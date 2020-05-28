@@ -1,0 +1,13 @@
+build:
+  skip: true
+release:
+  github:
+  prerelease: auto
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^chore\(ci\):'
+      - '^chore\(deps\):'
+      - '^docs:'
+      - '^test:'
